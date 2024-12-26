@@ -1,17 +1,21 @@
-import styles from "./page.module.css";
-import someStyle from "./style.module.css";
+"use client";
+import React, { useState } from "react";
 
-export default function Home() {
+// Render
+export default function Page() {
+  const [number, setNumber] = useState(10);
+  let a = 10;
+
+  function buttonClicked() {
+    setNumber(number + 1);
+    a = a + 1;
+  }
+
   return (
-    <div className={styles.page}>
-      <div className={someStyle.card}>
-        <h1 className={someStyle.a}>hello</h1>
-        <p className={someStyle.img}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta,
-          suscipit.
-        </p>
-        <a href="/profile">Go To Profile</a>
-      </div>
+    <div>
+      <p>page {number}</p>
+      <p>page {a}</p>
+      <button onClick={buttonClicked}>increase</button>
     </div>
   );
 }
